@@ -1,4 +1,5 @@
 import com.aluracursos.screenmatch.modelos.Pelicula;
+import com.aluracursos.screenmatch.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
@@ -21,7 +22,16 @@ public class Principal {
 //        otraPelicula.fechaDeLanzamiento= 1998;
 //        otraPelicula.duracionEnMinutos=180;
 //        otraPelicula.muestraFichaTecnica();
-
+        Serie casaDragon = new Serie();
+        casaDragon.setNombre("la casa del dragon");
+        casaDragon.setFechaDeLanzamiento(2022);
+        casaDragon.setTemporadas(1);
+        casaDragon.setMinutosPorEpisodio(50);
+        casaDragon.setEpisodiosPorTemporada(10);
+        System.out.println(casaDragon.getDuracionEnMinutos());
+        casaDragon.muestraFichaTecnica();
+//        Nos quedamos en la parte 3 clase 2 terminada, falta preguntar por que en la clase
+//        titulo en el metodo mostrarfichatecnica, puso un getduracionEnMinutos.
 
     }
 }
