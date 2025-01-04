@@ -1,3 +1,6 @@
+import com.aluracursos.screenmatch.calculos.CalculadoraDeTiempo;
+import com.aluracursos.screenmatch.calculos.FiltroRecomendacion;
+import com.aluracursos.screenmatch.modelos.Episodio;
 import com.aluracursos.screenmatch.modelos.Pelicula;
 import com.aluracursos.screenmatch.modelos.Serie;
 
@@ -17,11 +20,14 @@ public class Principal {
         System.out.println(miPelicula.getTotalDeLasEvaluaciones());
         System.out.println(miPelicula.calculaMedia());
 
-//        com.aluracursos.screenmatch.modelos.Pelicula otraPelicula = new com.aluracursos.screenmatch.modelos.Pelicula();
-//        otraPelicula.nombre="matrix";
-//        otraPelicula.fechaDeLanzamiento= 1998;
-//        otraPelicula.duracionEnMinutos=180;
-//        otraPelicula.muestraFichaTecnica();
+        Pelicula otraPelicula = new Pelicula();
+        otraPelicula.setNombre("matrix");
+        otraPelicula.setFechaDeLanzamiento(1998);
+        otraPelicula.setDuracionEnMinutos(180);
+        otraPelicula.muestraFichaTecnica();
+
+
+
         Serie casaDragon = new Serie();
         casaDragon.setNombre("la casa del dragon");
         casaDragon.setFechaDeLanzamiento(2022);
@@ -30,8 +36,22 @@ public class Principal {
         casaDragon.setEpisodiosPorTemporada(10);
         System.out.println(casaDragon.getDuracionEnMinutos());
         casaDragon.muestraFichaTecnica();
-//        Nos quedamos en la parte 3 clase 2 terminada, falta preguntar por que en la clase
-//        titulo en el metodo mostrarfichatecnica, puso un getduracionEnMinutos.
 
+        CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
+        calculadora.incluye(miPelicula);
+        calculadora.incluye(casaDragon);
+        calculadora.incluye(otraPelicula);
+        System.out.println("El tiempo necesario para ver otras peliculas es: "+calculadora.getTiempoTotal()+ "minutos");
+
+        FiltroRecomendacion filtroRecomendacion=new FiltroRecomendacion();
+        filtroRecomendacion.filtra(miPelicula);
+
+        Episodio episodio= new Episodio();
+        episodio.setNumero(1);
+        episodio.setNombre("La casa targaryen");
+        episodio.setSerie(casaDragon);
+        episodio.setTotalVisualizaciones(50);
+
+        filtroRecomendacion.filtra(episodio);
     }
 }
