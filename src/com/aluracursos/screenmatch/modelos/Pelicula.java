@@ -17,4 +17,12 @@ public class Pelicula extends  Titulo implements Clasificacion {
     public int getClasificacion() {
         return (int) (calculaMedia()/2);
     }
+
+    @Override
+    public String toString() {
+        return "pelicula: " + this.getNombre() + "("+ getFechaDeLanzamiento() +")";
+        //return super.toString();
+        //super significa que hacer referencia a un metodo de la clase madre
+    }
 }
+//nos quedamos en parte 2 de listas video 2

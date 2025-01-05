@@ -4,9 +4,13 @@ import com.aluracursos.screenmatch.modelos.Episodio;
 import com.aluracursos.screenmatch.modelos.Pelicula;
 import com.aluracursos.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
         Pelicula miPelicula = new Pelicula();
+        //lo de arriba es un constructor y sirve para reservar un espacio en memoria para poder darle atributos
+        //en este caso, a esa pelicula
         miPelicula.setNombre("Encanto");
         miPelicula.setFechaDeLanzamiento(2021);
         miPelicula.setDuracionEnMinutos(120);
@@ -52,6 +56,26 @@ public class Principal {
         episodio.setSerie(casaDragon);
         episodio.setTotalVisualizaciones(50);
 
-        filtroRecomendacion.filtra(episodio);
+
+        var peliculaDeBruno = new Pelicula();
+        peliculaDeBruno.setNombre("El señor de los anillos");
+        peliculaDeBruno.setDuracionEnMinutos(180);
+        peliculaDeBruno.setFechaDeLanzamiento(2001);
+
+        ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
+        listaDePeliculas.add(miPelicula);
+        listaDePeliculas.add(otraPelicula);
+        listaDePeliculas.add(peliculaDeBruno);
+
+        System.out.println("tamaño de la lista : "+ listaDePeliculas.size());
+        System.out.println("La primera pelicula es : "+ listaDePeliculas.get(0).getNombre());
+
+//        System.out.println(listaDePeliculas);
+//        el resultado es: [com.aluracursos.screenmatch.modelos.Pelicula@5b6f7412, com.aluracursos.screenmatch.modelos.Pelicula@27973e9b, com.aluracursos.screenmatch.modelos.Pelicula@312b1dae]
+        System.out.println(listaDePeliculas);
+        System.out.println("toString de la pelicula: "+ listaDePeliculas.get(0).toString());
+
+
+
     }
 }
